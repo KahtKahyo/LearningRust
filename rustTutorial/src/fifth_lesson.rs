@@ -6,6 +6,7 @@ use std::io::{Write, BufReader, BufRead, ErrorKind};
 use std::fs::File;
 use std::cmp::Ordering;
 
+// array and loops 
 fn main() {
     let arr_1 = [1, 2, 3, 4];
     println!("1st: {}", arr_1[0]);

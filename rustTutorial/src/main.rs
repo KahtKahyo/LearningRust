@@ -7,12 +7,14 @@ use std::fs::File;
 use std::cmp::Ordering;
 
 fn main() {
-    let arr_5 = [0,1,2,3,4,5,6,7,8,9,10];
-    let mut loop_indx = 0;
-   
-    for val in arr_5.iter() {
-        println!("Val: {}", val);
-    }
+    let my_tuple: (u8, String, f64) = (4, "Danny".to_string(), 50_000.00);
+
+    println!("Name: {}", my_tuple.1);
+    let(v1, v2, v3) = my_tuple;
+
+    println!("V1: {}", v1);
+    println!("V2: {}", v2);
+    println!("V3: {}", v3);
 }
 
 

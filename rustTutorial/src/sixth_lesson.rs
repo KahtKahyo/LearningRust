@@ -1,0 +1,20 @@
+#![allow(unused)]
+
+use std::io;
+use rand::Rng;
+use std::io::{Write, BufReader, BufRead, ErrorKind};
+use std::fs::File;
+use std::cmp::Ordering;
+
+
+// tuples
+fn main() {
+    let my_tuple: (u8, String, f64) = (4, "Danny".to_string(), 50_000.00);
+
+    println!("Name: {}", my_tuple.1);
+    let(v1, v2, v3) = my_tuple;
+
+    println!("V1: {}", v1);
+    println!("V2: {}", v2);
+    println!("V3: {}", v3);
+}
