@@ -6,6 +6,8 @@ use std::io::{Write, BufReader, BufRead, ErrorKind};
 use std::fs::File;
 use std::cmp::Ordering;
 
+
+// string
 fn main() {
     let mut st1 = String::new();
     st1.push('A');
@@ -16,5 +18,3 @@ fn main() {
     let st2 = st1.replace("A", "Another");
     println!("{}", st2);
 }
-
-
