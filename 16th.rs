@@ -21,12 +21,4 @@ fn main() {
         height: 10.5
     };
 
-    trait Shape  {
-        fn  new(length: f32, width: f32) -> Self;
-        fn area(&self) -> f32;
-
-    }
-
 }
-
-

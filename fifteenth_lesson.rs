@@ -23,7 +23,16 @@ fn main() {
         balance: 23456.12
     };
     bob.address = String::from("505 Main st");
+    // struct with generic
+        struct Rectangle<T, U> {
+            length: T,
+            height: U,
+        }
     
+        let rec = Rectangle {
+            length: 10,
+            height: 10.5
+        };
 }
 
 
