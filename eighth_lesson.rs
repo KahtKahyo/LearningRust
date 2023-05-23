@@ -14,4 +14,3 @@ fn main() {
    println!("{}", int3_u32);
 }
 
-
