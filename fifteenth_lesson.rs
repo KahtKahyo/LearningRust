@@ -10,7 +10,7 @@ use std::ops::Add; //for generic
 use std::collections::HashMap; //for HashMap
 
 fn main() {
-    // customer
+    // struct
     struct Customer{
         name: String,
         address: String,
