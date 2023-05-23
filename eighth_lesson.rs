@@ -1,4 +1,4 @@
-#![allow(unused)]
+s#![allow(unused)]
 
 use std::io;
 use rand::Rng;
