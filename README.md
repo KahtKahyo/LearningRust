@@ -1,2 +1,4 @@
-# LearningRust
-I don't know why I choose this language but I don't regret it, fun fact I probably will learn cpp more so that i can implement some of the algorithms in rust.
+#  THIS REPO IS DEDICATED FOR LEARNING RUST
+
+HERE I WILL STORE MY PROGRESS ON LEARNING RUST
+
