@@ -8,36 +8,28 @@ use std::fs::File;
 use std::cmp::Ordering;
 use std::ops::Add; //for generic
 use std::collections::HashMap; //for HashMap
+use std::thread; //for threads
+use std::time::Duration; 
 
 fn main() {
-    // smart pointers, box
-    let b_int1 = Box::new(10);
-    println!("b_int1 = {}", b_int1);
-
-    struct TreeNode<T> {
-        pub left: Option<Box<TreeNode<T>>>,
-        pub right: Option<Box<TreeNode<T>>>,
-        pub key: T, 
-    }
-    impl<T> TreeNode<T> {
-        pub fn new(key: T) -> Self {
-            TreeNode { left: None, right: None, key,
-            }
+    // Common problems with parallel progamming involve :
+    // 1. Thread are accessing data in th wrong order
+    // 2. Threads are blocked from executing because of confusion
+    // over requirements to proceed with execution 
+    
+    let thread1 = thread::spawn(|| {
+        for i in 1..25 {
+            println!("Spawned thread: {}", i);
+            thread::sleep(Duration::from_millis(1));
         }
-        pub fn left(mut self, node: TreeNode<T>) -> Self {
-            self.left = Some(box::new(node));
-            self
-        }
-        pub fn right(mut self, node: TreeNode<T>) -> Self {
-            self.right = Some(box::new(node)); 
-            self
-        }
+    });
+    
+    for i in 1..20 {
+        println!("Main thread : {}", i);
+        thread::sleep(Duration::from_millis(1));   
     }
 
-    let node1 = TreeNode::new(1)
-    .left(TreeNode::new(2)).right(TreeNode::new(3));
-
-
+    thread1.join().unwrap();
 }
 
 
