@@ -9,8 +9,12 @@ use std::cmp::Ordering;
 use std::ops::Add; //for generic
 use std::collections::HashMap; //for HashMap
 
+mod restaurant;
+
+use crate::restaurant::order_food;
+
 fn main() {
-        
+    order_food(); 
 }
 
 
