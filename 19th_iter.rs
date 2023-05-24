@@ -19,4 +19,3 @@ fn main() {
     println!("{:?}", iter1.next());
 }
 
-
