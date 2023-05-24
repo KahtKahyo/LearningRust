@@ -10,7 +10,7 @@ use std::ops::Add; //for generic
 use std::collections::HashMap; //for HashMap
 
 fn main() {
-    //panic error
+    //error handling
     
     let path = "lines.txt";
     let output = File::create(path);
