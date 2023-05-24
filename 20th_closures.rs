@@ -25,5 +25,3 @@ fn main() {
     sampl = 10;
     println!("sampl = {}", sampl);
 }
-
-
