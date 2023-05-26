@@ -38,4 +38,5 @@ fn main() {
     let st8 = st6 + &st7;
     for char in st8.bytes() {
         println!("{}", char);
+    }
 }
