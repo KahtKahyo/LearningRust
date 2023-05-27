@@ -27,6 +27,6 @@ mod tests {
     fn test_bubble_sort(){
         let mut v = vec![4,6,1,8,11,13];
         bubble_sort(&mut v);
-        assert_eq!(v, vec![1,4,6,8,11,13]);
+        assert_eq!(v, vec![4,6,8,11,13]); // this needs to fail to print out the result
     }
 }
