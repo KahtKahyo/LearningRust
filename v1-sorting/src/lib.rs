@@ -1,15 +1,17 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
-
 pub fn bubble_sort<T: PartialOrd>(v: &mut [T]){
-    for _ in 0..v.len(){
-        for i in 0..v.len()-1{
+    for p in 0..v.len(){
+        let mut sorted = true;
+        for i in 0..(v.len()-1-p){
             if v[i] > v[i+1] {
-                v.swap(i, i+1)
+                v.swap(i, i+1);
+                sorted = false;
             }
         }
+        if sorted {
+            return;
+        }
     }
+   
 }
 
 #[cfg(test)]
