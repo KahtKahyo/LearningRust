@@ -13,39 +13,13 @@ use std::time::Duration;
 use std::rc::Rc;
 use std::cell::RefCell;
 use std::sync::{Arc, Mutex};  
+use std::fmt::Debug; 
 
 fn main() {
-    pub struct Bank {
-        balance: f32
+    let v = vec![1,2,3,4,5,6,7,8,9,10];
+    for p in 0..v.len(){
+        println!("{}", p);
     }
-    fn withdraw(the_bank: &Arc<Mutex<Bank>>, amt: f32){
-        let mut bank_ref 
-        = the_bank.lock().unwrap();
-    if bank_ref.balance < 5.00 {
-        println!("Current Balance : {} Withdrawal a smaller amount",
-        bank_ref.balance);
-    } else {
-        bank_ref.balance -= amt;
-        println!("Customer withdrew {} Current Balance",
-        bank_ref.balance);
-    }
-
-    }
-    fn customer(the_bank: &Arc<Mutex<Bank>>){
-        withdraw(&the_bank, 5.00); 
-    }
-    let bank: Arc<Mutex<Bank>> = 
-    Arc::new(Mutex::new(Bank {balance: 20.00}));
-    let handles = (0..10).map(|_|{
-        let bank_ref = bank.clone();
-        thread::spawn(move || {
-            customer(&bank_ref)
-        })
-    }); 
-    for handle in handles {
-        handle.join().unwrap();
-    }
-    println!("Total {}", bank.lock().unwrap().balance);
 }
 
 
