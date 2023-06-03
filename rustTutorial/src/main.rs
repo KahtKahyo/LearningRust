@@ -7,6 +7,7 @@ use rand::Rng;
 use std::io::{Write, BufReader, BufRead, ErrorKind};
 use std::fs::File;
 use std::cmp::Ordering;
+use std::cmp::PartialOrd; 
 use std::ops::Add; //for generic
 use std::collections::HashMap; //for HashMap
 use std::thread; //for threads
@@ -16,20 +17,36 @@ use std::cell::RefCell;
 use std::sync::{Arc, Mutex};  
 use std::fmt::Debug; 
 
-fn main() {
-    let v = vec![1,2,3,4,5];
-    for i in 0..v.len(){
-        print!("{} ", v[i].to_string());
-        if i == v.len() - 1 {
-            print!("-> ");
-        }
+#[derive(Debug)]
+
+pub struct LinkedList<T>(Option<(T, Box<LinkedList<T>>)>);
+
+impl<T> LinkedList<T> {
+    pub fn new() -> Self {
+        LinkedList(None)
     }
 
-    let greeting = String::from("Hello");
+    pub fn push_front(&mut self, data: T) {
+        let t = self.0.take();
+        self.0 = Some((data,Box::new(LinkedList(t))));
+    }
 
-    let y = &greeting;
+    pub fn push_back(&mut self, data: T){
+        match  self.0 {
+            Some((_, ref mut child)) => child.push_back(data),
+            None => self.push_front(data),
+        }
+    }
+}
 
-    println!("{}!", y);
+fn main() {
+    let mut ll = LinkedList::new();
+
+    ll.push_front(1);
+    ll.push_back(12);
+    ll.push_front(15);
+
+    println!("ll = {:?}", ll);
 }
 
 
