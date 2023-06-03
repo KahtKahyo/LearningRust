@@ -1,4 +1,5 @@
 #![allow(unused)]
+#![allow(non_snake_case)]
 
 use std::fmt::Display;
 use std::io;
@@ -16,10 +17,19 @@ use std::sync::{Arc, Mutex};
 use std::fmt::Debug; 
 
 fn main() {
-    let v = vec![1,2,3,4,5,6,7,8,9,10];
-    for p in 0..v.len(){
-        println!("{}", p);
+    let v = vec![1,2,3,4,5];
+    for i in 0..v.len(){
+        print!("{} ", v[i].to_string());
+        if i == v.len() - 1 {
+            print!("-> ");
+        }
     }
+
+    let greeting = String::from("Hello");
+
+    let y = &greeting;
+
+    println!("{}!", y);
 }
 
 
