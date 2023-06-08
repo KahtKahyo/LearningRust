@@ -1,6 +1,8 @@
 #![allow(unused)]
 #![allow(non_snake_case)]
 
+pub mod new;
+
 use std::fmt::Display;
 use std::io;
 use rand::Rng;
